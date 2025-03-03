@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>文字輸入</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+  </head>
+
+  <body>
+    <input type="text" id="textInput" placeholder="輸入文字" oninput="updateText()" style="width: 150px; height: 40px; font-size: 24px;">
+    <input type="range" id="textSizeSlider" min="28" max="50" value="32" oninput="updateTextSize()" style="height: 40px;">
+    <button onclick="toggleBounce()" style="height: 40px; font-size: 24px;">文字跳動</button>
+    <select id="weekSelect" onchange="navigateToLink()" style="height: 40px; font-size: 24px;">
+      <option value="">選擇周次</option>
+      <option value="https://www.tku.edu.tw/">第一周</option>
+      <option value="http://www.et.tku.edu.tw/">第二周</option>
+      <option value="https://hackmd.io/@DANIELSHOW/BkDKIKzjJx">第三周</option>
+    </select>
+    <script src="sketch.js"></script>
+    <script>
+      function navigateToLink() {
+        const select = document.getElementById('weekSelect');
+        const url = select.value;
+        if (url) {
+          window.location.href = url;
+        }
+      }
+    </script>
+  </body>
+</html>
